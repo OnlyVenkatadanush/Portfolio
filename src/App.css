@@ -1,0 +1,19 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Transparent — fixed Spline shows through */
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  flex: 1;
+  background: transparent;
+}
+
+/* Subtle divider between sections */
+main > section + section {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
