@@ -1,0 +1,41 @@
+.neural-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #000000 !important; /* Pitch Black */
+}
+
+/* Subtle, fine geometric grid behind the neurons */
+.neural-bg__grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 90%);
+  opacity: 0.85;
+}
+
+/* Luxury warm champagne gold ambient nebula */
+.neural-bg__gold-nebula {
+  position: absolute;
+  top: -10%;
+  right: 10%;
+  width: 60vw;
+  height: 50vh;
+  background: radial-gradient(circle, rgba(243, 207, 122, 0.08) 0%, rgba(212, 175, 55, 0.03) 50%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.neural-bg__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}

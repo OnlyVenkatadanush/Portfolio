@@ -1,0 +1,318 @@
+.about-bento {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-bento__header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 56px;
+}
+
+.about-bento__title {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.about-bento__subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+}
+
+/* ── Bento Grid ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.bento-card {
+  position: relative;
+  background: #080808; /* Pitch Black */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: all var(--transition-med);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.bento-card:hover {
+  border-color: rgba(243, 207, 122, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(243, 207, 122, 0.1);
+}
+
+/* Card 1: Main Profile Card (Span 7 cols) */
+.bento-card--profile {
+  grid-column: span 7;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.bento-profile__img-wrap {
+  width: 165px;
+  height: 230px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid rgba(243, 207, 122, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 24px rgba(243, 207, 122, 0.15);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.bento-profile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  transition: transform var(--transition-med);
+}
+
+.bento-profile__img-wrap:hover .bento-profile__img {
+  transform: scale(1.05);
+}
+
+.bento-profile__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-profile__badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #f3cf7a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.bento-profile__name {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.bento-profile__role {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.bento-profile__bio {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.bento-profile__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bento-profile__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Card 2: Tech Matrix (Span 5 cols) */
+.bento-card--tech {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.bento-title {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.bento-tech__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bento-tech__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bento-tech__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #f3cf7a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.bento-tech__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bento-tech__tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all var(--transition-fast);
+}
+
+.bento-tech__tag:hover {
+  background: rgba(243, 207, 122, 0.15);
+  border-color: #f3cf7a;
+  color: #ffffff;
+}
+
+/* Card 3: Technical Leadership (Span 4 cols) */
+.bento-card--leadership {
+  grid-column: span 4;
+}
+
+.bento-lead__desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.bento-lead__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bento-lead__role {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(243, 207, 122, 0.1);
+  color: #f3cf7a;
+  border: 1px solid rgba(243, 207, 122, 0.3);
+}
+
+/* Card 4: Academic Metrics (Span 4 cols) */
+.bento-card--academics {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-academics__score {
+  font-family: var(--font-primary);
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.bento-academics__degree {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fef08a;
+  margin-bottom: 4px;
+}
+
+.bento-academics__inst {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Card 5: Languages & Culture (Span 4 cols) */
+.bento-card--personal {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-personal__item {
+  margin-bottom: 12px;
+}
+
+.bento-personal__item:last-child {
+  margin-bottom: 0;
+}
+
+.bento-personal__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #f3cf7a;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.bento-personal__val {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .bento-card--profile {
+    grid-column: span 12;
+  }
+  .bento-card--tech {
+    grid-column: span 12;
+  }
+  .bento-card--leadership,
+  .bento-card--academics,
+  .bento-card--personal {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-card--profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  .bento-profile__img-wrap {
+    margin: 0 auto;
+  }
+  .bento-profile__chips {
+    justify-content: center;
+  }
+}

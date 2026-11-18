@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
+import { Download } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
   { label: 'Home',       href: '#home',       id: 'home' },
-  { label: 'About',      href: '#about',      id: 'about' },
+  { label: 'Overview',   href: '#about',      id: 'about' },
   { label: 'Experience', href: '#experience', id: 'experience' },
   { label: 'Projects',   href: '#projects',   id: 'projects' },
-  { label: 'Education',  href: '#education',  id: 'education' },
-  { label: 'Activities', href: '#activities', id: 'activities' },
+  { label: 'Patents',    href: '#patents',    id: 'patents' },
+  { label: 'Academics',  href: '#education',  id: 'education' },
   { label: 'Contact',    href: '#contact',    id: 'contact' },
 ];
 
@@ -16,25 +17,21 @@ export default function Navbar() {
   const [menuOpen,  setMenuOpen]  = useState(false);
   const [active,    setActive]    = useState('home');
 
-  // Track whether user just clicked a link (suppress observer briefly)
   const clickedRef = useRef(false);
   const timerRef   = useRef(null);
 
-  /* ── scroll-glass effect ── */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ── IntersectionObserver: auto-highlight active section ── */
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.id);
 
     const observer = new IntersectionObserver(
       (entries) => {
         if (clickedRef.current) return;
-
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -71,8 +68,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="navbar__inner container">
-
-        {/* Logo */}
+        {/* Brand Logo */}
         <a
           href="#home"
           className="navbar__logo"
@@ -107,11 +103,12 @@ export default function Navbar() {
             className="navbar__cta"
             id="navbar-resume-btn"
           >
-            Resume
+            <Download size={14} />
+            <span>Resume</span>
           </a>
         </div>
 
-        {/* Hamburger */}
+        {/* Mobile Hamburger */}
         <button
           className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}

@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { GraduationCap, BookOpen, CheckCircle } from 'lucide-react';
+import { GraduationCap, BookOpen, CheckCircle, Trophy } from 'lucide-react';
 import './Education.css';
 
 const education = [
@@ -42,14 +42,19 @@ const coreFoundations = [
   { name: 'Object-Oriented Programming', desc: 'Design Patterns, Modular Architecture, SOLID Principles' },
 ];
 
+const hackathons = [
+  { name: 'Build @ IDS National Hackathon (IAMAI)', award: 'National Finalist' },
+  { name: 'RepoGenesis (BMSCE IEEE Computer Society)', award: 'Honorable Mention' },
+  { name: 'Internal Smart India Hackathon (SIH 2025)', award: 'Selected Team' },
+  { name: "AMBITION'25 Hackathon (BIT Bengaluru)", award: 'Participant' },
+];
+
 const languagesSpoken = [
   { lang: 'English', level: 'Professional Fluency' },
   { lang: 'Telugu', level: 'Native Speaker' },
   { lang: 'Kannada', level: 'Professional Fluency' },
   { lang: 'Hindi', level: 'Working Proficiency' },
 ];
-
-const hobbies = ['Cooking & Culinary Arts', 'Solving Algorithmic Puzzles', 'Exploring Multi-Agent AI Frameworks'];
 
 export default function Education() {
   const [headerRef, headerIn]     = useScrollReveal();
@@ -65,7 +70,7 @@ export default function Education() {
         >
           <span className="section-label">Academic Foundations</span>
           <h2 className="education__title">
-            Education &amp; <span className="gradient-text">Core CS</span>
+            Education &amp; <span className="gradient-text">Competitions</span>
           </h2>
         </div>
 
@@ -108,8 +113,33 @@ export default function Education() {
             ref={rightRef}
             className={`education__right sr sr--right ${rightIn ? 'in-view' : ''}`}
           >
+            {/* Hackathons & Competitions */}
+            <h3 className="education__sub-title">Hackathons &amp; Honors</h3>
+            <div className="cert-list">
+              {hackathons.map((item) => (
+                <div
+                  className="cert-item"
+                  key={item.name}
+                  id={`hack-${item.name.replace(/\s+/g, '-').toLowerCase()}`}
+                >
+                  <div className="cert-item__icon-wrap">
+                    <Trophy size={16} />
+                  </div>
+                  <div>
+                    <p className="cert-item__name">{item.name}</p>
+                    <p className="cert-item__issuer">{item.award}</p>
+                  </div>
+                  <div className="cert-item__badge">
+                    <CheckCircle size={14} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Core CS Foundations */}
-            <h3 className="education__sub-title">Core Computer Science</h3>
+            <h3 className="education__sub-title" style={{ marginTop: '28px' }}>
+              Core Computer Science
+            </h3>
             <div className="cert-list">
               {coreFoundations.map((item) => (
                 <div
@@ -133,26 +163,13 @@ export default function Education() {
 
             {/* Languages */}
             <h3 className="education__sub-title" style={{ marginTop: '28px' }}>
-              Linguistic Competency
+              Linguistic Proficiency
             </h3>
             <div className="lang-tags">
               {languagesSpoken.map(({ lang, level }) => (
                 <div key={lang} className="lang-tag" title={level}>
                   <span>{lang}</span>
                   <span style={{ opacity: 0.65, fontSize: '0.75rem', marginLeft: '6px' }}>({level})</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Hobbies */}
-            <h3 className="education__sub-title" style={{ marginTop: '28px' }}>
-              Interests &amp; Hobbies
-            </h3>
-            <div className="hobby-list">
-              {hobbies.map((h) => (
-                <div className="hobby-item" key={h}>
-                  <div className="hobby-item__dot" />
-                  <span>{h}</span>
                 </div>
               ))}
             </div>

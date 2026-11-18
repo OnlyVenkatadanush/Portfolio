@@ -1,0 +1,160 @@
+.patents-research {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.patents-research__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 60px;
+}
+
+.patents-research__title {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.patents-research__subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.05rem;
+}
+
+.patents-research__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.patent-card {
+  position: relative;
+  background: #080808; /* Pitch Black */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-med);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+}
+
+.patent-card:hover {
+  border-color: rgba(243, 207, 122, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 45px rgba(243, 207, 122, 0.12);
+}
+
+.patent-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.patent-card__badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(243, 207, 122, 0.1);
+  color: #fef08a;
+  border: 1px solid rgba(243, 207, 122, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.patent-card__badge--paper {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.patent-card__icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3cf7a;
+}
+
+.patent-card__title {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.patent-card__desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.patent-card__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.patent-card__hl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.patent-card__hl-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f3cf7a;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.patent-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.patent-card__tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 992px) {
+  .patents-research__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
